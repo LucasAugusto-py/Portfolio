@@ -10,7 +10,7 @@ sys.path.insert(0, APPS_DIR)
 
 SECRET_KEY = os.environ.get('SECRET_KEY', default='my secret key')
 
-DEBUG = False
+DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS') if DEBUG else []
 
