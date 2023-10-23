@@ -24,8 +24,8 @@ DJANGO_APPS = [
 ]
 
 MY_APPS = [
-    'portfolio',
-    'webempresa',
+    'portfolio.apps.PortfolioConfig',
+    'webempresa.apps.WebempresaConfig',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + MY_APPS
@@ -46,9 +46,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(APPS_DIR, 'inventory/templates/inventory'),
-                ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -63,7 +61,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-if DEBUG:
+if env.bool('USE_LOCAL_DB', default=False):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -72,7 +70,9 @@ if DEBUG:
     }
 else:
     DATABASES = {
-        'default': dj_database_url(os.environ.get('DATABASES',default=''))
+        'default': dj_database_url.parse(
+            os.environ.get('DATABASES',default='')
+            )
     }
 
 # Password validation
