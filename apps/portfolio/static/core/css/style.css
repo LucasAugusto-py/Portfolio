@@ -1,0 +1,99 @@
+.main-section {
+    display: flex;
+}
+
+.main-section {
+    display: flex;
+}
+
+.main-section .presentation{
+    width: 50%;
+    height: 36rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-section .img-presentation{
+    width: 50%;
+}
+
+.titles{
+    margin: 1rem;
+}
+
+.titles h3{
+    font-size: 1.5rem;
+}
+.titles h1{
+    font-size: 3.5rem;
+    margin: 1rem 0;
+}
+.titles p{
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+.python{
+    color: green;
+    font-weight: 600;
+    text-shadow: 0 0 10px gray;
+}
+.bx-heart{
+    color: red;
+    text-shadow: 0 0 10px gray;
+}
+.data{
+    color: #9B59B6;
+    text-shadow: 0 0 10px gray;
+}
+
+.img-presentation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-presentation img{
+    width: 24rem;
+    height: 24rem;
+    margin-top: 4rem;
+    margin-right: 5rem;
+    border-radius: 24px;
+    box-shadow: 0 0 10px #9B59B6;
+}
+.img-presentation button{
+    background-color: transparent;
+    border: 1px #9B59B6 solid;
+    margin: 2rem;
+    margin-right: 5rem;
+    padding: .5rem;
+    font-size: 1.2rem;
+    border-radius: 24px;
+    transition: .5s ease;
+}
+
+.img-presentation button:hover{
+    background-color: #9B59B6;
+    color: #13161C;
+    box-shadow: 0px 0px 10px #fff;
+}
+
+.social-media i{
+    color: #fff;
+    margin: 0 .5rem;    
+    padding: .2rem;
+    font-size: 2rem;
+    transition: .5s ease;
+    border: 1px transparent solid;
+    border-radius:  50%;
+}
+
+.social-media i:hover{
+    color: #13161C;
+    background-color: #9B59B6;
+    font-size: 2.8rem;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+

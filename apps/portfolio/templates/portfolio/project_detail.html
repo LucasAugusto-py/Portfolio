@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'portfolio/css/project_detail.css' %}">
+{% endblock styles %}
+{% block content %}
+<main>
+    <h1>{{ object.name }}</h1>
+    <a href="">link</a>
+</main>
+{% endblock %}

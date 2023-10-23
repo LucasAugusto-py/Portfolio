@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+{% endblock styles %}
+{% block content %}
+<section class="main-section">
+    <div class="presentation">
+        <div class="titles">
+            <h3>Hello, my name is</h3>
+            <h1>Lucas Augusto Silva</h1>
+            <p>And I'm a <span class="multiple-text"></span> </p>
+            
+        </div>
+        <div class="social-media">
+            <a href="">
+                <i class='bx bxl-github'></i>
+            </a>
+            <a href="">
+                <i class='bx bxl-linkedin-square'></i>
+            </a>
+            <a href="">
+                <i class='bx bxl-instagram'></i>
+            </a>
+        </div>
+    </div>
+    <div class="img-presentation" >
+        <img src="{% static 'img/img-profile.jpg' %}" alt="img">
+        <button>Download CV</button>
+    </div>
+</section>
+<section class="section2">
+
+</section>
+
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+<script src="{% static 'core/js/script.js' %}"></script>
+{% endblock content %}

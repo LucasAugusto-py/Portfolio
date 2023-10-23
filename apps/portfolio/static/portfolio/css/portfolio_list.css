@@ -1,0 +1,28 @@
+main{
+    display: flex;
+    margin-top: 5rem;
+    flex-direction: column-reverse;
+    height: 100%;
+    align-items: center;
+}
+
+.project-container{
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px #9B59B6 solid;
+    border-radius: 24px;
+    transition: .5s ease;
+}
+
+.project-container:hover{
+    box-shadow: 0 0 10px gray;
+}
+
+.project-link{
+    font-size: 48px;
+    transition: .5s ease;
+}
+
+.project-link:hover{
+    color: #9B59B6;
+}

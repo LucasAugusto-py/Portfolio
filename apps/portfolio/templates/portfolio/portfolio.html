@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'portfolio/css/portfolio_list.css' %}">
+{% endblock styles %}
+{% block content %}
+<main>
+    <section>
+        {% for project in object_list %}
+            <div class="project-container">
+                <a href="{% url 'project' project.id %}" >
+                    <h1 class="project-link">{{ project.name }}</h1>
+                </a>
+                <p>{{ project.description }}</p>
+            </div>
+        {% endfor %}
+    </section>
+</main>
+{% endblock content %}
