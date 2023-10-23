@@ -10,7 +10,7 @@ sys.path.insert(0, APPS_DIR)
 
 SECRET_KEY = os.environ.get('SECRET_KEY', default='my secret key')
 
-DEBUG = 'RENDER' not in os.environ
+DEBUG = False
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS') if DEBUG else []
 
@@ -104,8 +104,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
-STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
