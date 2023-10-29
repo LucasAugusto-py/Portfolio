@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'portfolio/css/skill_list.css' %}">
+{% endblock %}
+{% block content %}
+<main>
+    <h1>Skills</h1>
+    <div class="skills-container">
+    {% for skill in object_list %}
+        <div class="skill">
+            <h4>
+                <a href="{% url 'skill_detail' skill.id %}">
+                    {{skill}}
+                </a>
+            </h4>
+            {% if skill.image %}
+            <img src="{{ skill.image.url }}" alt="Image {{ skill.name }}" width="120px">
+            {% endif %}
+            {% if request.user.is_authenticated %}
+                <form action="{% url 'skills' %}" enctype="multipart/form-data" method="POST" class="form_image"> 
+                    {% csrf_token %}
+                    {{ image_form_skill.as_p }}
+                    <input type="text" name="skill_id" id="skill_id_image" value="{{ skill.pk }}" style="display: none;">
+                    <button type="submit" class="image_upload_btn">Upload</button>
+                </form>
+            {% endif %}
+            
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

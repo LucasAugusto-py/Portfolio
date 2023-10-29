@@ -1,0 +1,21 @@
+{% extends 'consultora/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'consultora/css/newspaper.css' %}">
+{% endblock styles %}
+{% block content %}
+<main class="content">
+    <ul class="newspaper-container">
+        {% for newspaper in object_list %}
+        <li class="newspaper">
+            {% if newspaper.image %}
+            <img src="{{ newspaper.image.url }}" alt="imagen de {{newspaper.name}}" class="newspaper-image">
+            {% endif %}
+            <h3>
+                {{ newspaper.name }}
+            </h3>
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+{% endblock content %}

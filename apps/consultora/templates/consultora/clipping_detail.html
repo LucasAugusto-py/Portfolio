@@ -1,0 +1,144 @@
+{% extends 'consultora/base.html' %}
+{% load static %}
+{% load custom_templates %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'consultora/css/clipping_detail.css' %}">
+{% endblock styles %}
+{% block content %}
+<main>
+    <button class="reverse">
+        <a href="{% url 'consultora:clipping_list' %}">
+            <
+        </a>
+    </button>
+    <h1 class="body_title" id="title-main">San Juan, {{ clipping.date.day }} de {{ clipping.date.month | int_to_month }} de {{ clipping.date.year }}</h1>
+    <ul class="newspaper_container">
+        {% for newspaper in clipping.newspaper.all %}
+            <li class="newspaper" id="newspaper-{{ newspaper.pk }}">
+                <div class="newspaper_head">
+                    <h2 >{{ newspaper }}</h2>
+                    <img src="{% if newspaper.image %}{{ newspaper.image.url }}{% else %}{% endif %}" alt="Imagen de diario {{ newspaper }}" class="image-newspaper">
+                    {% if request.user.is_authenticated %}
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="text" value="{{ newspaper.pk }}" name="newspaper_pk_img" style="display: none;">
+                        {{ form.as_p }}
+                        <input type="submit" value="Guardar" class="btn-img">
+                    </form>
+                    <form action="{% url 'consultora:clipping_detail' clipping.pk %}" method="POST" >
+                        {% csrf_token %}
+                        <input type="text" name="remove_newspaper" id="remove_newspaper" value="{{ newspaper }}" style="display: none;">
+                        <input type="submit" value="Eliminar Diario" class="delete">
+                    </form>
+                    {% endif %}
+                </div>
+                <div class="newspaper_content">
+                        {% for article in newspaper.article_set.all %}
+                            <a href="#article-content-{{ article.pk }}" class="smooth-scroll">-{{ article.title }}</a>
+                            <p class="article-subtitle">{{ article.subtitle }}</p>
+                            {% if request.user.is_authenticated %}
+                            <form action="{% url 'consultora:clipping_detail' clipping.pk %}#newspaper-{{ newspaper.pk }}" method="POST">
+                                {% csrf_token %}
+                                <input type="text" name="newspaper_pk" id="newspaper_pk" value="{{ newspaper.pk }}" style="display: none;">
+                                <input type="text" name="delete_article" id="delete_article" value="{{ article.pk }}" style="display: none;">
+                                <input type="submit" value="Eliminar Articulo">
+                            </form>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% if request.user.is_authenticated %}
+                <form action="{% url 'consultora:clipping_detail' clipping.pk %}#newspaper-{{ newspaper.pk }}" method="POST" class="article_form">
+                    {% csrf_token %}
+                    <input type="text" name="article_newspaper" id="article_newspaper" style="display: none;" value="{{ newspaper }}">
+                    <h4>Añadir articulo</h4>
+                    <label for="add_article">Título</label>
+                    <input type="text" name="add_article" id="article">
+                    <label for="add_article_description">Subtítulo</label>
+                    <textarea name="add_article_description" id="add_article_description" class="text-area-article"></textarea>
+                    <label for="add_url">Url</label>
+                    <input type="text" name="add_url" id="add_url">
+                    <input type="submit" class="btn-submit" value="Añadir Artículo">
+                </form>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    {% if request.user.is_authenticated %}
+    <form action="{% url 'consultora:clipping_detail' clipping.pk %}" method="POST">
+        {% csrf_token %}
+        
+        <label for="newspaper">Añadir diario</label>
+        <input type="text" list="newspapers" name="newspaper" id="newspaper">
+        <datalist id = 'newspapers'>
+            {% for newspaper in newspapers %}
+            <option value="{{newspaper}}">
+            {% endfor %}
+        </datalist>
+        <input type="submit" value="Añadir" id="">
+    </form>
+    {% endif %}
+    <div class="newspaper_xl_content">
+        {% for newspaper in clipping.newspaper.all %}
+            <h2 class="newspaper-title">{{ newspaper }}</h2>
+            {% for article in newspaper.article_set.all %}
+                <h3 id="article-content-{{ article.pk }}">-<u>{{ article.title }}</u></h3>
+                <div class="parragraph-content">
+                    <p>{{ article.subtitle }}</p>
+                    {% for image in article.image_set.all %}
+                        <img src="{{ image.image.url }}" alt="">
+                        {% if request.user.is_authenticated %}
+                        <form action="{% url 'consultora:clipping_detail' clipping.pk %}#article-content-{{ article.pk }}" method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="delete_image_article" id="delete_image_article" value="{{ image.pk }}" style="display: none;">
+                            <input type="submit" value="Eliminar Imagen" class="delete">
+                        </form>
+                        {% endif %}
+                    {% endfor %}
+                    {% for parragraph in article.parragraph_set.all %}
+                        <p>{{ parragraph.content|linebreaks  }}</p>
+                        {% if request.user.is_authenticated %}
+                        <form action="{% url 'consultora:clipping_detail' clipping.pk %}#article-content-{{ article.pk }}" method="POST">
+                            {% csrf_token %}
+                            <input type="text" name="delete_parragraph_id" id="delete_parragraph_id" value="{{ parragraph.pk }}" style="display: none;">
+                            <input type="submit" value="Eliminar Parrafo" class="delete">
+                        </form>
+                        {% endif %}
+                    {% endfor %}
+                    <a href="{{ article.url }}" target="_blank" class="note-link">Link de la nota</a>
+                    {% if request.user.is_authenticated %}
+                    <form action="{% url 'consultora:clipping_detail' clipping.pk %}#article-content-{{ article.pk }}" method="POST" class="form-parragraph">
+                        {% csrf_token %}
+                        <input type="text" name="article_id" id="article_id" value="{{ article.pk }}" style="display: none;">
+                        <textarea name="add_parragraph" id="add_parragraph" class="parragraph"></textarea>
+                        <input type="submit" value="Agregar Parrafo" class="btn-parragraph">
+                    </form>
+                    <form action="{% url 'consultora:clipping_detail' clipping.pk %}#article-content-{{ article.pk }}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="text" name="add_image_article" id="image_article" value="{{ article.pk }}" style="display: none;">
+                        {{ form_image_article.as_p }}
+                        <input type="submit" value="Subir" class="btn-img">
+                    </form>
+                    {% endif %}
+                    <button class="btn-back"><a href="#newspaper-{{ newspaper.pk }}" class="smooth-scroll back">Volver</a></button>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Agregar desplazamiento suave a los enlaces y botones con la clase "smooth-scroll"
+        $(".smooth-scroll").on('click', function(event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+                var hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800); // La duración del desplazamiento en milisegundos (ej. 800ms)
+            }
+        });
+    });
+</script>
+{% endblock %}

@@ -7,8 +7,12 @@ urlpatterns = [
     path('', include('portfolio.urls')),
     #Project paths
     path('company-website/', include('webempresa.urls')),
+    path('consultora/', include('consultora.urls')),
     #Admin path
     path('admin/', admin.site.urls),
+    #Path users
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('apps.registration.urls')),
 ]
 
 if settings.DEBUG: 

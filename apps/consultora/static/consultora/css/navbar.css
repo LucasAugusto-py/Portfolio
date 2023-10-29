@@ -1,0 +1,52 @@
+header{
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+    color: #145DA0;
+    margin: .5rem;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title h1, .title p{
+    display: inline-block;
+    margin: 0;    
+}
+
+.title h1{
+    font-size: 2.5rem;
+}
+
+.subtitle{
+    font-size: .8rem;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 2px;
+    color: black;
+}
+
+
+header a{
+    text-decoration: none;
+    color: #145DA0;
+}
+
+header ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-weight: 600;
+}
+
+header ul li{
+    margin: 1rem;
+}
+
+
+.deactive{
+    display: none;
+}

@@ -1,0 +1,17 @@
+main{
+    display: flex;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-box{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+.input-box input{
+    margin: 1rem;
+    font-family: 'Poppins', sans-serif;
+}

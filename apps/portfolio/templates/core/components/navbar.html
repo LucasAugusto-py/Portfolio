@@ -3,22 +3,32 @@
         <a href="{% url 'index' %}"><h1>Lucas Silva</h1></a>
     </div>
     <nav>
-        <ul>
+        <ul class="navbar">
             <li>
             <a href="{% url 'index' %}" style="--i:1;" class="{% if request.path == '/' %}active{% endif %}">Home</a>
             </li>
             <li>
-                <a href="{% url 'soon' %}" style="--i:2;">Skills</a>
+                <a href="{% url 'skills' %}" style="--i:2;" class="{% if request.path == '/skill/' %}active{% endif %}">Skills</a>
             </li>
             <li>
                 <a href="{% url 'portfolio' %}" style="--i:3;" class="{% if request.path == '/portfolio/' %}active{% endif %}">Portfolio</a>
             </li>
             <li>
-                <a href="{% url 'soon' %}" style="--i:4;">Contact</a>
-            </li>
-            <li>
                 <a href="{% url 'soon' %}" style="--i:5;">About me</a>
             </li>
+            <li>
+                <a href="{% url 'soon' %}" style="--i:4;">Contact</a>
+            </li>
         </ul>
+        <div class="toggle-menu">
+            <input 
+                type="checkbox" 
+                class="toggle-menu__checkbox"
+                id="toggle-menu-checkbox"
+            />
+            <label for="toggle-menu-checkbox">
+                <i class='bx bx-menu'></i>
+            </label>
+        </div>
     </nav>
 </header>

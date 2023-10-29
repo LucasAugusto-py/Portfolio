@@ -7,13 +7,13 @@
     text-decoration: none;
 }
 
+
 body{
     background-color: #13161C;
 }
 
 header{
     display: flex;
-    width: 100%;
     padding: 2rem;
     justify-content: space-around;
     align-items: center;
@@ -56,6 +56,10 @@ header nav ul li a:hover,.active{
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
+.toggle-menu{
+    display: none;
+}
+
 @keyframes slideRight{
     0%{
         transform: translateX(-100px);
@@ -75,5 +79,37 @@ header nav ul li a:hover,.active{
     100%{
         transform: translateY(0px);
         opacity: 1;
+    }
+}
+
+@media (max-width:1200px) {
+    header nav ul{
+        gap: 2rem;
+    }
+}
+
+@media (max-width:900px) {
+    
+    header nav{
+        display: flex;
+        align-items: center;
+    }
+    .navbar{
+        display: none;
+    }
+    .toggle-menu{
+        display: inline-block;   
+    }
+    .bx-menu{
+        font-size: 2.5rem;
+        position: absolute;
+        right: .1rem;
+    }
+}
+@media (max-width:360px){
+    .toggle-menu{
+        display: inline-block;
+        position: absolute;
+        right: 1rem;
     }
 }

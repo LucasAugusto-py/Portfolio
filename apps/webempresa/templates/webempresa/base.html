@@ -35,29 +35,29 @@
     <!-- Navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
       <div class="container">
-        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{% url 'webempresa:home' %}">La Caffettiera</a>
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{% url 'WebCompany:home' %}">La Caffettiera</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item px-lg-4 {% if request.path == '/company-website/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'webempresa:home' %}">Home</a>
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'WebCompany:home' %}">Home</a>
             </li>
             <li class="nav-item px-lg-4 {% if request.path == '/company-website/about/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'webempresa:about' %}">About</a>
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'WebCompany:about' %}">About</a>
             </li>
             <li class="nav-item px-lg-4 {% if request.path == '/company-website/services/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'webempresa:services' %}">Services</a>
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'WebCompany:services' %}">Services</a>
             </li>
             <li class="nav-item px-lg-4 {% if request.path == '/company-website/store/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'webempresa:store' %}">Store</a>
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'WebCompany:store' %}">Store</a>
             </li>
             <li class="nav-item px-lg-4 {% if request.path == '/company-website/contact/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'webempresa:contact' %}">Contact</a>
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'WebCompany:contact' %}">Contact</a>
             </li>
             <li class="nav-item px-lg-4 {% if request.path == '/company-website/blog/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'webempresa:home' %}">Blog</a>
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'WebCompany:blog' %}">Blog</a>
             </li>
           </ul>
         </div>

@@ -1,0 +1,16 @@
+{% extends 'consultora/base.html' %}
+{% load static %}
+{% block content %}
+<a href="{% url 'consultora:clipping_list' %}">
+    <h1>Clippings</h1>
+</a>
+<a href="{% url 'consultora:newspaper' %}">
+    <h1>Diarios</h1>
+</a>
+<a href="">
+    <h1>Servicios</h1>
+</a>
+<a href="">
+    <h1>Estadisticas</h1>
+</a>
+{% endblock %}

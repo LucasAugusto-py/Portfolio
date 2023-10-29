@@ -1,0 +1,39 @@
+{% extends 'consultora/base.html' %}
+{% load static %}
+{% load custom_templates %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'consultora/css/clipping_list.css' %}">
+{% endblock styles %}
+{% block content %}
+<button class="reverse">
+    <a href="{% url 'consultora:index' %}">
+        <
+    </a>
+</button>
+<main class="content">
+    <ul class="clippings">
+    {% for clipping in object_list  %}
+            <li class="clipping"> 
+                <h1 class="clipping-title">
+                    <a href="{% url 'consultora:clipping_detail' clipping.pk %}">Clipping {{ clipping.date.day }} de {{ clipping.date.month |int_to_month}} del {{ clipping.date.year }}</a>
+                </h1>
+                <ul class="newspaper_list">
+                    {% for newspaper in clipping.newspaper.all %}
+                    <li>
+                        {{ newspaper }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+    {% endfor %}
+        <li class="add_clipping">
+            <div>
+                <h1>Nuevo Clipping</h1>
+                <button>
+                    <a href="">+</a>
+                </button>
+            </div>
+        </li>
+    </ul>
+</main>
+{% endblock content %}

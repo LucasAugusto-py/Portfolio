@@ -1,0 +1,43 @@
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main h1{
+    font-size: 5rem;
+}
+
+.skills-container{
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: center
+}
+
+.skill{
+    display: flex;
+    flex-direction: column;
+    max-width: 12rem;
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border: 1px #9B59B6 solid;
+    border-radius: 15px;
+    align-items: center;
+}
+
+.form_image{
+    display: flex;
+    font-size: .8rem;
+    flex-direction: column;
+    width: 50%;
+}
+.form_image p{
+    display: flex;
+    flex-direction: column;
+}
+
+.image_upload_btn{
+    color: red;
+}

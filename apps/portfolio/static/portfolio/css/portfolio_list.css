@@ -7,7 +7,10 @@ main{
 }
 
 .project-container{
+    display: flex;
+    flex-direction: column;
     margin-bottom: 2rem;
+    width: 40rem;
     padding: 1rem;
     border: 1px #9B59B6 solid;
     border-radius: 24px;
@@ -25,4 +28,22 @@ main{
 
 .project-link:hover{
     color: #9B59B6;
+}
+
+.skills{
+    display: flex;
+    margin: 1rem;
+}
+
+.skills span a{
+    margin: .5rem;
+    border: 1px solid #fff;
+    border-radius: 24px;
+    padding: 0.4rem;
+}
+
+.skills span a:hover{
+    color: black;
+    background-color: white;
+    box-shadow: 0 0 10px gray;
 }

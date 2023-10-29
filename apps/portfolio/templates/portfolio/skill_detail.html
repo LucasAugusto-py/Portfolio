@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block styles %}
+
+{% endblock styles %}
+{% block content %}
+<h1>{{ object.name }}</h1>
+<ul>
+    {% for certificate in object.certificate_set.all %}
+    <li>
+        <h4>{{ certificate.name }}</h4>
+        <img src="{{ certificate.image.url }}" alt="Image {{ certificate.name }} certificate" width="400px" height="300px">
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}

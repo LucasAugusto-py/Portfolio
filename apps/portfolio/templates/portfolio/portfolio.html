@@ -13,6 +13,17 @@
                     <h1 class="project-link">{{ project.name }}</h1>
                 </a>
                 <p>{{ project.description }}</p>
+                {% if project.skills.all %}
+                <div class="skills">
+                    {% for skill in project.skills.all %}
+                        <span>
+                            <a href="{% url 'skill_detail' skill.id %}">
+                                {{ skill }}
+                            </a>
+                        </span>
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
         {% endfor %}
         {% else %}

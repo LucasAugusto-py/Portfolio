@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Skill(models.Model):
     name = models.CharField(max_length=200, verbose_name='Skill')
-    image = models.ImageField(verbose_name='Skill Image', blank=True, null=True)
+    image = models.ImageField(verbose_name='Skill Image', upload_to='portfolio/skills/',blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -29,3 +29,16 @@ class Project(models.Model):
     class Meta:
         verbose_name = 'project'
         verbose_name_plural = 'projects'
+
+class Certificate(models.Model):
+    name = models.CharField(max_length=200, verbose_name='Certificate Name')
+    image = models.ImageField(upload_to='portfolio/certificate/', verbose_name='Certificate image')
+    skills = models.ManyToManyField(Skill, blank=True)
+    url = models.URLField(verbose_name='Url certificate', blank=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'certificate'
+        verbose_name_plural = 'certificates'

@@ -1,0 +1,44 @@
+<header>
+    <div class="title">
+        <h1>
+            <a href="{% url 'consultora:index' %}">
+                Comunicar Consultora
+            </a>
+        </h1>
+        <p class="subtitle">Comunicación Estratégica para la minería</p>
+    </div>
+    <nav>
+        <ul>
+            <li class="{% if request.path == '/consultora/' %}deactive{% endif %}">
+                <a href="{% url 'consultora:index' %}">Home</a>
+            </li>
+            <li>
+                <a href="">Help</a>
+            </li>
+            {% if not request.user.is_authenticated %}
+            <li>
+                <a href="{% url 'login' %}">Iniciar Sesión</a>
+            </li>
+            <li>
+                <a href="{% url 'signup' %}">Registrarse</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{% url 'logout' %}">Log out</a>
+            </li>
+            <!-- <li class="user-name-icon">       
+                
+                <span class="material-symbols-outlined">
+                    person
+                </span>
+                
+               
+                <a>
+                    {{ request.user }}
+                </a>        
+                
+            </li> -->
+            {% endif %}
+        </ul>
+    </nav>
+</header>

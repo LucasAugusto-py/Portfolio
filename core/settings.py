@@ -19,6 +19,7 @@ if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 DJANGO_APPS = [
+    'registration.apps.RegistrationConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -30,9 +31,14 @@ DJANGO_APPS = [
 MY_APPS = [
     'portfolio.apps.PortfolioConfig',
     'webempresa.apps.WebempresaConfig',
+    'consultora.apps.ConsultoraConfig',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + MY_APPS
+THIRD_PARTY_APPS = [
+    'storages',
+]
+
+INSTALLED_APPS = DJANGO_APPS + MY_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -112,7 +118,21 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media' )
 
+#Auth redirect
+LOGIN_REDIRECT_URL = 'consultora:clipping_list'
+LOGOUT_REDIRECT_URL = 'consultora:clipping_list'
 
+AWS_ACCESS_KEY_ID = env.str('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env.str('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env.str('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_SIGNATURE_NAME = env.tuple('AWS_S3_SIGNATURE_NAME')
+AWS_S3_REGION_NAME = env.str('AWS_S3_REGION_NAME')
+AWS_S3_FILE_OVERWRITE = env.bool('AWS_S3_FILE_OVERWRITE')
+AWS_DEFAULT_ACL = None
+AWS_S3_VERITY = env.bool('AWS_S3_VERITY')
+
+
+DEFAULT_FILE_STORAGE = env.str('DEFAULT_FILE_STORAGE')
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
