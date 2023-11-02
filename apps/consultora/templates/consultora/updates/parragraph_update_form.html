@@ -4,10 +4,10 @@
 <link rel="stylesheet" href="{% static 'consultora/css/style.css' %}">
 {% endblock styles %}
 {% block content %}
-<script type="application/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<!-- <script type="application/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script> -->
 <script type="application/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
 <link href="{% static 'playground/css/custom_ckeditor.css' %}" rel="stylesheet">
-
+<script src="{% static 'ckeditor/ckeditor-init.js' %}" data-ckeditor-basepath="/static/ckeditor/ckeditor/" id="ckeditor-init-script"></script>
 <section>
     <form action="" class="form-custom" method="post">{% csrf_token %}
         {{ form }}
