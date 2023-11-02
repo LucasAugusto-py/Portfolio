@@ -120,6 +120,10 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media' )
@@ -147,5 +151,5 @@ EMAIL_BACKEND = env.str('EMAIL_BACKEND')
 DEFAULT_FILE_STORAGE = env.str('DEFAULT_FILE_STORAGE')
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+    
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
