@@ -2,6 +2,7 @@ from pathlib import Path
 import environ, os, sys, dj_database_url, mimetypes
 
 mimetypes.add_type("text/javascript", ".js", True)
+mimetypes.add_type("text/css", ".css", True)
 
 env = environ.Env()
 environ.Env.read_env()
