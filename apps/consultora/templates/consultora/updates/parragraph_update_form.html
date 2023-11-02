@@ -1,0 +1,17 @@
+{% extends 'consultora/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'consultora/css/style.css' %}">
+{% endblock styles %}
+{% block content %}
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+<link href="{% static 'playground/css/custom_ckeditor.css' %}" rel="stylesheet">
+
+<section>
+    <form action="" class="form-custom" method="post">{% csrf_token %}
+        {{ form }}
+        <input type="submit" class="btn-submit-login" value="Actualizar">
+    </form>
+</section>
+{% endblock content %}

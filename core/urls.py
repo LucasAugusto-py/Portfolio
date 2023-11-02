@@ -5,11 +5,15 @@ from django.conf import settings
 urlpatterns = [
     #Portfolio/Principal Path
     path('', include('portfolio.urls')),
+
     #Project paths
+    path('playground/', include('playground.urls')),
     path('company-website/', include('webempresa.urls')),
     path('consultora/', include('consultora.urls')),
+
     #Admin path
     path('admin/', admin.site.urls),
+    
     #Path users
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('apps.registration.urls')),

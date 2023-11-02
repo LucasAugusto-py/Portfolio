@@ -1,0 +1,21 @@
+section{
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+
+.title{
+    font-size: 5rem;
+}
+
+.link{
+    color: var(--text-color);
+    margin: .5rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    transition: .5s ease;
+}
+.link:hover{
+    color: black;
+    border-radius: 20rem;
+    background: #fff;
+}

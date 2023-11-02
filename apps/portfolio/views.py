@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic import TemplateView
 from portfolio import models, forms
 
 def index(request):
@@ -14,7 +15,7 @@ def soon(request):
 
 class PortfolioListView(ListView):
     model = models.Project
-    template_name = 'portfolio/portfolio.html'
+    template_name = 'portfolio/projects_list.html'
 
 class PortfolioDetailView(DetailView):
     model = models.Project
@@ -42,3 +43,9 @@ class SkillListView(ListView):
 class SkillDetailView(DetailView):
     model = models.Skill
     template_name = 'portfolio/skill_detail.html'
+
+class AboutView(TemplateView):
+    template_name = 'portfolio/about.html'
+
+class ContactView(TemplateView):
+    template_name = 'portfolio/contact.html'

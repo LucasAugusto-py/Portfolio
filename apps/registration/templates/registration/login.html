@@ -2,21 +2,19 @@
 {% load static %}
 {% block styles %}
 <link rel="stylesheet" href="{% static 'registration/css/login.css' %}">
+<link rel="stylesheet" href="{% static 'consultora/css/style.css' %}">
 {% endblock styles %}
 {% block content %}
-<main>
-    <form action="" method="POST">{% csrf_token %}
+<section>
+    <form action="" method="POST" class="form-custom">{% csrf_token %}
         {% if form.non_field_errors %}
             <p>Usuario o contraseña incorrectos</p>
         {% endif %}
-        <div class="input-box">
-            <label for="username">Usuario</label>
-            <input type="text" name="username" placeholder="Usuario" autofocus maxlength="254" required id="id_username">
-            <label for="password">Contraseña</label>
-            <input type="password" name="password" placeholder="Contraseña" required id="id_password">
-            <input type="submit" class="btn" value="Acceder">
-        </div>
-        
+        <label for="username" class="label-custom">Usuario</label>
+        <input type="text" name="username" placeholder="Usuario" autofocus maxlength="254" required id="id_username" class="input-custom">
+        <label for="password" class="label-custom">Contraseña</label>
+        <input type="password" name="password" placeholder="Contraseña" required id="id_password" class="input-custom">
+        <input type="submit" class="btn-submit-login" value="Acceder">
     </form>
-</main>
+</section>
 {% endblock content %}

@@ -1,7 +1,11 @@
+{% load static %}
+
+<img src="{% static 'consultora/img/bg-color-blue.png' %}" alt="" class="blue-sun">
 <header>
+
     <div class="title">
         <h1>
-            <a href="{% url 'consultora:index' %}">
+            <a href="{% url 'consultora:index' %}" class="title-link">
                 Comunicar Consultora
             </a>
         </h1>
@@ -26,19 +30,8 @@
             <li>
                 <a href="{% url 'logout' %}">Log out</a>
             </li>
-            <!-- <li class="user-name-icon">       
-                
-                <span class="material-symbols-outlined">
-                    person
-                </span>
-                
-               
-                <a>
-                    {{ request.user }}
-                </a>        
-                
-            </li> -->
             {% endif %}
         </ul>
     </nav>
+    <i class='bx bx-menu'></i>
 </header>

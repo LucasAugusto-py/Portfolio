@@ -1,7 +1,20 @@
-var typed = new Typed(".multiple-text", {
-    strings : ['<span class="python">Python</span> Developer', '<span class="data">Data</span> Lover <i class="bx bx-heart" ></i>', '<span class="data">Data</span> Engineer <i class="bx bxs-data data"></i>'],
-    typeSpeed: 100,
-    backSpeed: 100,
-    backDelay: 1000,
-    loop: true
-})
+
+let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+};
+
+let section = document.querySelectorAll('section');
+let navLinks = document.querySelectorAll('header nav a');
+
+window.onscroll = () => {
+    let header = document.querySelector('header');
+
+    header.classList.toggle('sticky', window.scrollY > 100);
+    
+    menuIcon.classList.remove('bx-x');
+    navbar.classList.remove('active');
+};

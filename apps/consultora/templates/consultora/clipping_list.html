@@ -2,17 +2,13 @@
 {% load static %}
 {% load custom_templates %}
 {% block styles %}
+<link rel="stylesheet" href="{% static 'consultora/css/style.css' %}">
 <link rel="stylesheet" href="{% static 'consultora/css/clipping_list.css' %}">
 {% endblock styles %}
 {% block content %}
-<button class="reverse">
-    <a href="{% url 'consultora:index' %}">
-        <
-    </a>
-</button>
-<main class="content">
+<section>
     <ul class="clippings">
-    {% for clipping in object_list  %}
+    {% for clipping in object_list|dictsort:"id" reversed  %}
             <li class="clipping"> 
                 <h1 class="clipping-title">
                     <a href="{% url 'consultora:clipping_detail' clipping.pk %}">Clipping {{ clipping.date.day }} de {{ clipping.date.month |int_to_month}} del {{ clipping.date.year }}</a>
@@ -29,11 +25,11 @@
         <li class="add_clipping">
             <div>
                 <h1>Nuevo Clipping</h1>
-                <button>
-                    <a href="">+</a>
-                </button>
+                <div class="btn">
+                    <a href="{% url 'admin:consultora_clipping_add' %}">+</a>
+                </div>
             </div>
         </li>
     </ul>
-</main>
+</section>
 {% endblock content %}

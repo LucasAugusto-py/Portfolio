@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{% static 'consultora/css/newspaper.css' %}">
 {% endblock styles %}
 {% block content %}
-<main class="content">
+<section>
     <ul class="newspaper-container">
         {% for newspaper in object_list %}
         <li class="newspaper">
@@ -17,5 +17,5 @@
         </li>
         {% endfor %}
     </ul>
-</main>
+</section>
 {% endblock content %}

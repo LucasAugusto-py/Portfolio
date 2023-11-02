@@ -32,10 +32,12 @@ MY_APPS = [
     'portfolio.apps.PortfolioConfig',
     'webempresa.apps.WebempresaConfig',
     'consultora.apps.ConsultoraConfig',
+    'playground.apps.PlaygroundConfig',
 ]
 
 THIRD_PARTY_APPS = [
     'storages',
+    'ckeditor',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + MY_APPS + THIRD_PARTY_APPS
@@ -64,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'webempresa.processors.ctx_dict',
             ],
         },
     },
@@ -131,6 +134,12 @@ AWS_S3_FILE_OVERWRITE = env.bool('AWS_S3_FILE_OVERWRITE')
 AWS_DEFAULT_ACL = None
 AWS_S3_VERITY = env.bool('AWS_S3_VERITY')
 
+EMAIL_HOST = env.str('EMAIL_HOST')
+EMAIL_HOST_USER = env.str('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = env.int('EMAIL_PORT')
+EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')
+EMAIL_BACKEND = env.str('EMAIL_BACKEND')
 
 DEFAULT_FILE_STORAGE = env.str('DEFAULT_FILE_STORAGE')
 if not DEBUG:

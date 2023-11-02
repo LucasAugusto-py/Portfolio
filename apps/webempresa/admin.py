@@ -20,6 +20,15 @@ class PostAdmin(admin.ModelAdmin):
         return ', '.join([c.name for c in obj.categories.all().order_by('name')])
     post_categories.short_description = 'Categories'
 
+class LinkAdmin(admin.ModelAdmin):
+    readonly_fields = ('created','updated')
+
+class PageAdmin(admin.ModelAdmin):
+    readonly_fields = ('created', 'updated')
+    list_display = ('title','order')
+
 admin.site.register(models.Service ,ServiceAdmin)
 admin.site.register(models.Category, CategoryAdmin)
 admin.site.register(models.Post, PostAdmin)
+admin.site.register(models.Link, LinkAdmin)
+admin.site.register(models.Page, PageAdmin) 

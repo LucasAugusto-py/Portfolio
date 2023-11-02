@@ -1,0 +1,17 @@
+{% extends 'consultora/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'consultora/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'consultora/css/clipping_detail.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<section>
+    <form action="" method="post" class="form-custom">{% csrf_token %}
+        {{ form }}
+        <input type="text" name="hola" id="hola" value="hola" style="display: none;">
+        <input type="submit" class="btn-submit-login" value="Actualizar">
+    </form>
+</section>
+
+{% endblock content %}

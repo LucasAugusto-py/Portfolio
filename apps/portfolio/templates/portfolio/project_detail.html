@@ -4,8 +4,9 @@
 <link rel="stylesheet" href="{% static 'portfolio/css/project_detail.css' %}">
 {% endblock styles %}
 {% block content %}
-<main>
-    <h1>{{ object.name }}</h1>
-    <a href="{{ object.url }}">link</a>
-</main>
+<section>
+    <h1 class="title">{{ object.name }}</h1>
+    <a href="{{ object.url }}" class="link">Link</a>
+</section>
+
 {% endblock %}

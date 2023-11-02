@@ -1,0 +1,100 @@
+section{
+    position: relative;
+    min-height: 100vh;
+    padding: 15rem 9% 2rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    align-items: center;
+}
+
+.form-custom{
+    display: flex;
+    margin-top: 10rem;
+    padding: 2rem 4rem;
+    border-radius: 2.4rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 1rem black;
+    transition: .5s ease;
+}
+
+.form-custom:hover{
+    box-shadow: 0 0 1rem #145DA0;
+}
+
+.form-custom label{
+    font-size: 1.6rem;
+}
+
+.form-custom p{
+    font-size: 1.6rem;
+}
+
+.label-custom{
+    font-size: 1.6rem;
+    font-weight: 600;
+    display: block;
+    margin: 1rem;
+    letter-spacing: .2rem;
+}
+
+.input-custom{
+    display: block;
+    width: 100%;
+    margin: .5rem 1rem;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    box-shadow: 0 0 1rem black;
+}
+
+.input-custom:focus{
+    box-shadow: 0 0 1rem #145DA0;
+}
+
+.text-area{
+    display: block;
+}
+
+.btn-submit-login{
+    box-shadow: 0 0 1rem green;
+    margin: 1rem;
+    padding: .5rem 1rem;
+    width: fit-content;
+    border-radius: 2.4rem;
+    align-self: center;
+    letter-spacing: .2rem;
+    font-weight: 500;
+    transition: .5s ease;
+}
+
+.btn-submit-login:hover{
+    transform: scale(1.2);
+    box-shadow: none;
+    color: #fff;
+    background: green;
+}
+
+.btn-delete-form{
+    box-shadow: 0 0 1rem black;
+    margin: 1rem;
+    padding: .5rem 1rem;
+    width: fit-content;
+    border-radius: 2.4rem;
+    align-self: center;
+    letter-spacing: .2rem;
+    font-weight: 500;
+    transition: .5s ease;
+}
+
+.btn-delete-form:hover{
+    transform: scale(1.2);
+    box-shadow: 0 0 1rem red;
+    color: #fff;
+    background-color: red;
+}
+
+.custom-p{
+    font-size: 1.6rem;
+}

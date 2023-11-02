@@ -1,0 +1,16 @@
+{% extends 'consultora/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'consultora/css/style.css' %}">
+{% endblock styles %}
+{% block content %}
+<section>
+    <form action="" method="post" class="form-custom">
+        {% csrf_token %}
+        <p class="custom-p"><b>Estas seguro de querer borrar este parrafo?</b></p>
+        <p class="custom-p">{{ object.content|safe }}</p>
+        <input type="submit" class="btn-delete-form" value="Sí, borrar parrafo">
+    </form>
+</section>
+    
+{% endblock content %}

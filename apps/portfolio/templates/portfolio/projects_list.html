@@ -4,9 +4,9 @@
 <link rel="stylesheet" href="{% static 'portfolio/css/portfolio_list.css' %}">
 {% endblock styles %}
 {% block content %}
-<main>
-    <section>
-        {% if object_list %}
+
+<section>
+    {% if object_list %}
         {% for project in object_list %}
             <div class="project-container">
                 <a href="{% url 'project' project.id %}" >
@@ -25,12 +25,21 @@
                 </div>
                 {% endif %}
             </div>
-        {% endfor %}
-        {% else %}
-            <div class="project-container">
-                <h1 class="project-link">No projects to display</h1>
+            {% if request.user.is_authenticated %}
+            <div class="admin">
+                <a href="{% url 'admin:portfolio_project_change' project.id %}" class="edit">Editar</a>
+                <a href="{% url 'admin:portfolio_project_delete' project.id %}" class="delete">Eliminar</a>
             </div>
-        {% endif %}
-    </section>
-</main>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <div class="project-container">
+            <h1 class="project-link">No projects to display</h1>
+        </div>
+    {% endif %}
+    <a href="{% url 'admin:portfolio_project_add' %}" class="add-project">
+        <h1>Create new project +</h1>
+    </a>
+</section>
+
 {% endblock content %}

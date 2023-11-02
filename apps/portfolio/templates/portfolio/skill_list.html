@@ -4,8 +4,8 @@
 <link rel="stylesheet" href="{% static 'portfolio/css/skill_list.css' %}">
 {% endblock %}
 {% block content %}
-<main>
-    <h1>Skills</h1>
+<section>
+    <h1 class="title-skills">Skills</h1>
     <div class="skills-container">
     {% for skill in object_list %}
         <div class="skill">
@@ -28,6 +28,10 @@
             
         </div>
         {% endfor %}
+        <div class="skill add-skill">
+            <a href="{% url 'admin:portfolio_skill_add' %}">+</a>
+            <h1>Create new skill</h1>
+        </div>
     </div>
-</main>
+</section>
 {% endblock %}

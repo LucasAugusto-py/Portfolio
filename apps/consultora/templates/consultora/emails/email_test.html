@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load custom_templates %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin: 0 auto;">
+    <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td align="center"style="padding-top: 10px;padding-bottom:10px;color:#145DA0;font-size:32px;font-weight: 600;">
+                San Juan, {{ clipping.date.day }} de {{ clipping.date.month | int_to_month }} de {{ clipping.date.year }}
+            </td>
+        </tr>
+        <tr>
+            <table border="0">
+                {% for newspaper in clipping.newspaper.all %}
+                <tr>
+                    <td style="font-size: 24px;color:#145DA0;margin: 5px;">
+                        {{ newspaper.name }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="{{ newspaper.image.url }}" alt="Newspaper Image" width="250px" height="350px" style="margin: 10px;">
+                    </td>
+                    <td>
+                        <table>
+                            {% for article in newspaper.article_set.all %}
+                            <tr>
+                                <td>
+                                    <a href="{{ article.url }}" target="_blank" style="font-size: 18px;">
+                                        -{{ article.title }}
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p style="font-size: 16px;color:black;">
+                                        <i>
+                                            {{ article.subtitle }}
+                                        </i>
+                                    </p>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </tr>
+        <tr>
+            <table border="0">
+                {% for newspaper in clipping.newspaper.all %}
+                    <tr>
+                        <td>
+                            <h2 style="color:midnightblue;margin: 5px;">
+                                <u>
+                                    {{ newspaper.name }}
+                                </u>
+                            </h2>
+                        </td>
+                    </tr>
+                    {% for article in newspaper.article_set.all %}
+                        <tr>
+                            <td>
+                                <h3 style="color: black;font-size: 18px;">
+                                    <u>
+                                        {{ article.title }}
+                                    </u>
+                                </h3>
+                            </td>
+                        </tr>
+                        {% for parragraph in article.parragraph_set.all %}
+                            <tr>
+                                <td>
+                                    <p style="font-size: 14px;color: black;">
+                                        <i style="color: black;">
+                                            {{ parragraph.content | safe }}
+                                        </i>
+                                    </p>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <td>
+                                <a href="{{article.url}}">
+                                    <i>
+                                        Link de la nota
+                                    </i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            </table>
+        </tr>
+    </table>
+</body>
+</html>
+

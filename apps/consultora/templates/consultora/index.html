@@ -1,16 +1,21 @@
 {% extends 'consultora/base.html' %}
 {% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'consultora/css/style.css' %}">
+{% endblock styles %}
 {% block content %}
-<a href="{% url 'consultora:clipping_list' %}">
-    <h1>Clippings</h1>
-</a>
-<a href="{% url 'consultora:newspaper' %}">
-    <h1>Diarios</h1>
-</a>
-<a href="">
-    <h1>Servicios</h1>
-</a>
-<a href="">
-    <h1>Estadisticas</h1>
-</a>
+<section>
+    <a href="{% url 'consultora:clipping_list' %}">
+        <h1>Clippings</h1>
+    </a>
+    <a href="{% url 'consultora:newspaper' %}">
+        <h1>Diarios</h1>
+    </a>
+    <a href="">
+        <h1>Servicios</h1>
+    </a>
+    <a href="">
+        <h1>Estadisticas</h1>
+    </a>
+</section>
 {% endblock %}

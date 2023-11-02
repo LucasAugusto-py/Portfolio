@@ -8,4 +8,6 @@ urlpatterns = [
     path('portfolio/<int:pk>', views.PortfolioDetailView.as_view(), name='project'),
     path('skill/', views.SkillListView.as_view(), name='skills'),
     path('skill/<int:pk>', views.SkillDetailView.as_view(), name='skill_detail'),
+    path('about/', views.AboutView.as_view(), name = 'about'),
+    path('contact/', views.ContactView.as_view(), name = 'contact')
 ]

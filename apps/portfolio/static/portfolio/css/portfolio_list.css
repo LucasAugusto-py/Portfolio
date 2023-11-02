@@ -1,15 +1,15 @@
-main{
+section{
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
     display: flex;
-    margin-top: 5rem;
-    flex-direction: column-reverse;
-    height: 100%;
+    flex-direction: column;
     align-items: center;
 }
 
 .project-container{
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
     width: 40rem;
     padding: 1rem;
     border: 1px #9B59B6 solid;
@@ -22,6 +22,7 @@ main{
 }
 
 .project-link{
+    color: var(--text-color);
     font-size: 48px;
     transition: .5s ease;
 }
@@ -30,12 +31,17 @@ main{
     color: #9B59B6;
 }
 
+.project-container p{
+    margin: .8rem 0;
+}
+
 .skills{
     display: flex;
     margin: 1rem;
 }
 
 .skills span a{
+    color: var(--text-color);
     margin: .5rem;
     border: 1px solid #fff;
     border-radius: 24px;
@@ -46,4 +52,55 @@ main{
     color: black;
     background-color: white;
     box-shadow: 0 0 10px gray;
+}
+
+.admin{
+    margin: 1.2rem;
+}
+
+.admin .edit{
+    color: black;
+    margin-right: 1rem;
+    padding: .5rem;
+    border-radius: 2rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px gray;
+    transition: .5s ease;
+}
+
+.admin .delete{
+    color: #fff;
+    padding: .5rem;
+    border-radius: 2rem;
+    background-color: red;
+    box-shadow: 0 0 1rem red;
+    transition: .5s ease;
+
+}
+
+.admin .edit:hover, .admin .delete:hover{
+    padding: .7rem;
+}
+
+.add-project{
+    border: 1px var(--text-color) solid;
+    border-radius: 2rem;
+    padding: 1rem;
+    margin: 1rem;
+    color: var(--main-color);
+    justify-content: center;
+    align-items: center;
+    transition: .5 ease;
+}
+
+.add-project:hover{
+    color: black;
+    background-color: #fff;
+    box-shadow: 0 0 1rem #fff;
+}
+
+@media (max-width: 400px) {
+    .project-container{
+        width: auto;
+    }
 }
