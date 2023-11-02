@@ -136,10 +136,12 @@
                     </div>
                 {% endfor %}
         {% endfor %}
-        <form action="" method="post">{% csrf_token %}
-            <input type="text" name="send_email_form" value="{{ clipping.pk }}">
-            <input type="submit" class="btn-submit" value="Enviar Email">
-        </form>
+        {% if request.user.is_authenticated %}
+            <form action="" method="post">{% csrf_token %}
+                <input type="text" name="send_email_form" value="{{ clipping.pk }}">
+                <input type="submit" class="btn-submit" value="Enviar Email">
+            </form>
+        {% endif %}
     </div>
 </section>
 
