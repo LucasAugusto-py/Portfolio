@@ -15,6 +15,11 @@
     {% endblock styles %}
 </head>
 <body>
+<!-- <script type="application/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script> -->
+<script src="{% static 'ckeditor/ckeditor-init.js' %}" data-ckeditor-basepath="/static/ckeditor/ckeditor/" id="ckeditor-init-script"></script>
+<script type="application/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+<link href="{% static 'playground/css/custom_ckeditor.css' %}" rel="stylesheet">
+
     {% include 'consultora/components/navbar.html' %}
 
     {% block content %}
